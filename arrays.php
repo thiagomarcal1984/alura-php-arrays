@@ -15,8 +15,18 @@
 
 $array = [
     1 => 'um',
-    true => 'dois',
-    1.3 => 'tres',
+    2 => 'dois',
+    3 => 'tres',
 ];
+$contador = 0;
+foreach ($array as $numeral => $nomeNumero) {
+    echo "$numeral em português é $nomeNumero." . PHP_EOL;
+    $contador++;
+}
 
-var_dump($array);
+echo PHP_EOL;
+echo "Variável contador: " . $contador . PHP_EOL;
+echo "Função count: " . count($array) . PHP_EOL;
+echo "Função sizeof: " . sizeof($array) . PHP_EOL; // Count é um alias para sizeof (ou o contrário).
+
+// var_dump($array);
