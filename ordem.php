@@ -1,17 +1,35 @@
 <?php
 
 $notas = [
-    10,
-    8,
-    9,
-    7
+    [
+        'aluno' => 'Maria',
+        'nota' => 10
+    ],
+    [
+        'aluno' => 'Vinicius',
+        'nota' => 6
+    ],
+    [
+        'aluno' => 'Ana',
+        'nota' => 9
+    ],
 ];
 
-$notasOrdenadas = $notas; // Cópia do conteúdo da variável $notas para $notasOrdenadas.
-sort($notasOrdenadas); // O sort pega a variável por referência: a ordem das notas serão modificadas na variável de origem.
+function ordenaNotas(array $nota1, array $nota2) : int 
+{
+    // return $nota2['nota'] - $nota1['nota']; // Função resumida.
 
-echo "Notas desordenadas: ";
+    if ($nota1['nota'] > $nota2['nota']){
+        return -1; // Nota maior vem primeiro.
+    };
+
+    if ($nota1['nota'] < $nota2['nota']){
+        return 1; // Nota menor vem depois no array.
+    };
+
+    return 0; // Mantém o elemento no mesmo lugar.
+};
+
+usort($notas, 'ordenaNotas'); // O usort pega o array e o nome da função de ordenação (formato de string).
+
 var_dump($notas);
-
-echo "Notas ordenadas: ";
-var_dump($notasOrdenadas);
