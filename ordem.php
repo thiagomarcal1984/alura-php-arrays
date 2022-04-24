@@ -17,17 +17,9 @@ $notas = [
 
 function ordenaNotas(array $nota1, array $nota2) : int 
 {
-    // return $nota2['nota'] - $nota1['nota']; // Função resumida.
-
-    if ($nota1['nota'] > $nota2['nota']){
-        return -1; // Nota maior vem primeiro.
-    };
-
-    if ($nota1['nota'] < $nota2['nota']){
-        return 1; // Nota menor vem depois no array.
-    };
-
-    return 0; // Mantém o elemento no mesmo lugar.
+    // return $nota2['nota'] - $nota1['nota']; // Função resumida sem o operador espaçonave.
+    return $nota2['nota'] <=> $nota1['nota']; // Operador "espaçonave". 
+    // Quem vem antes do operador aparece primeiro; quem vem depois do operador aparede depois.
 };
 
 usort($notas, 'ordenaNotas'); // O usort pega o array e o nome da função de ordenação (formato de string).
