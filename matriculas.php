@@ -83,18 +83,39 @@ var_dump($alunos2022);
 // https://www.php.net/manual/en/language.types.array.php#language.types.array.unpacking
 // https://www.php.net/manual/en/functions.arguments.php#functions.variable-arg-list
 
-function f1(string ...$v) // O spread operator flexibiliza o número de entradas.
-{
-    foreach ($v as $el) {
-        echo $el . PHP_EOL;
-    }
-}
+// function f1(string ...$v) // O spread operator flexibiliza o número de entradas.
+// {
+//     foreach ($v as $el) {
+//         echo $el . PHP_EOL;
+//     }
+// }
 
-f1('Um', 'Dois', 'Três');
-f1('Quatro', 'Cinco');
+// f1('Um', 'Dois', 'Três');
+// f1('Quatro', 'Cinco');
 
-function f2(int $h, int $w, int $l) 
-{
-    return $h * $w * $l;
-}
-var_dump(f2(...[3,3,3])); // Os parâmetros de f2 não é um array: é um spread do array para três variáveis.
+// function f2(int $h, int $w, int $l) 
+// {
+//     return $h * $w * $l;
+// }
+// var_dump(f2(...[3,3,3])); // Os parâmetros de f2 não é um array: é um spread do array para três variáveis.
+
+// array_push recebe a referência de um array e um spread argument como argumentos.
+// Não há retorno de no array_push, mas sim do número de elementos do array:
+//  o array referenciado é modificado.
+array_push($alunos2022, 'Alice', 'Bob', 'Charlie'); 
+
+// É possível inserir um objeto com a sintaxe $array[] = 'valor':
+$alunos2022[] = 'Luiz';
+
+// array_unshift insere elementos no início do array. Ele também recebe um
+// array e um spread argument como argumentos.
+array_unshift($alunos2022, 'Stephane', 'Rafaela');
+
+// array_shift move o índice para a direita. Na prática, remove o primeiro elemento 
+// do array. O array_unshift faz o contrário: insere no início do array.
+echo array_shift($alunos2022) . PHP_EOL; // Removeu Stephane.
+
+// array_pop retira o último elemento do array.
+echo array_pop($alunos2022) . PHP_EOL; // Remove o Luiz do array $alunos2022.
+
+var_dump($alunos2022);
