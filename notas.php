@@ -37,3 +37,10 @@ echo PHP_EOL . "É possível que a chave seja nula. Por isso, usamos a
 função isset para confirmar se o elemento do array é nulo." . PHP_EOL;
 
 var_dump(isset($notas['Vinicius']));
+
+echo PHP_EOL . "Alguém tirou 10? ";
+var_dump(in_array(10, $notas)); // Testa se o valor 10 está presente em qualquer chave de $notas.
+
+// [array_]key_exists = verifica se a chave existe.
+// in_array = verifica se o valor existe.
+// isset = verifica se a chave existe e não é nula.
