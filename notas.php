@@ -27,3 +27,13 @@ echo "Testa se é uma lista indexada com inteiros: " . array_is_list($notas);
 
 var_dump (array_is_list([])); // Um array vazio é uma lista.
 var_dump (array_is_list($notas)); // Um array associativo não é uma lista.
+
+echo PHP_EOL . "Teste com array_key_exists (procura índice Vinícius em \$notas): " . PHP_EOL;
+echo "Vinícius fez a prova? ";
+var_dump(array_key_exists('Vinicius', $notas)); // outro alias é key_exists.
+// array_key_exists procura um índice em um array e retorna verdadeiro se encontrar.
+
+echo PHP_EOL . "É possível que a chave seja nula. Por isso, usamos a 
+função isset para confirmar se o elemento do array é nulo." . PHP_EOL;
+
+var_dump(isset($notas['Vinicius']));
