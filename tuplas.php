@@ -22,3 +22,33 @@ var_dump($nome, $nota, $idade); // Os lists são indexados por inteiros, não po
 
 ['nome' => $nome, 'nota' => $nota, 'idade' => $idade] = $dados; // Esta atribuição múltipla vai funcionar: o índice é mapeado pra variável corretamente.
 echo "Nome: $nome   Idade: $idade   Nota: $nota" . PHP_EOL;
+
+// Cópia do exercício:
+
+// $contas = [
+//     [
+//         'titular' => 'Vinicius Dias',
+//         'saldo' => 100
+//     ],
+//     [
+//         'titular' => 'Maria Joaquina',
+//         'saldo' => 1000
+//     ],
+//     [
+//         'titular' => 'João da Silva',
+//         'saldo' => 800
+//     ],
+// ];
+
+// Como eu posso me aproveitar da função list para ter as variáveis $titular e $saldo definidas?
+
+// foreach ($contas as ['titular' => $titular, 'saldo' => $saldo]) {
+//     echo "$titular possui $saldo reais" . PHP_EOL;
+// }
+
+/** 
+ * Alternativa correta! Desta forma para cada item do array $contas nós 
+ * aplicaríamos a função list. Nesse caso nós estamos usando a sintaxe 
+ * resumida usando colchetes, mas poderíamos sem problema usar a sintaxe 
+ * mais verbosa com com list().
+ */
