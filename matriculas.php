@@ -68,3 +68,31 @@ $ex2 = [
 
 var_dump($ex1 + $ex2); // Repare que as palavras 'One' e 'Two' não aparecem no resultado.
 // O operador união (+) e a função array_merge tem comportamentos diferentes ao mesclar arrays.
+
+
+// O operador desempacotamento (três pontos: ...) converte arrays em elementos 
+// soltos, não ordenados em arrays. Antes da versão 8.1 do PHP não era possível
+// fazer unpacking de arrays indexados com strings.
+$alunos2022 = [...$alunos2021, 'Carlos Vinícius', ...$novosAlunos];
+// Os colchetes criam um novo array. O desempacotamento solta os elementos e 
+// permite intercalação de outros elementos, como o nome 'Carlos Vinícius'.
+var_dump($alunos2022);
+
+// Os três pontos representa dois operadores: o de unpacking (desempacotamento) e o de spread.
+// O spread operator serve para indicar uma sequência de parâmetros.
+
+function f1(string ...$v) // O spread operator flexibiliza o número de entradas.
+{
+    foreach ($v as $el) {
+        echo $el . PHP_EOL;
+    }
+}
+
+f1('Um', 'Dois', 'Três');
+f1('Quatro', 'Cinco');
+
+function f2(int $h, int $w, int $l) 
+{
+    return $h * $w * $l;
+}
+var_dump(f2(...[3,3,3])); // Os parâmetros de f2 não é um array: é um spread do array para três variáveis.
