@@ -44,3 +44,19 @@ var_dump(in_array(10, $notas)); // Testa se o valor 10 está presente em qualque
 // [array_]key_exists = verifica se a chave existe.
 // in_array = verifica se o valor existe.
 // isset = verifica se a chave existe e não é nula.
+
+// 10 == '10'; // Dois iguais = Verdadeiro, comparação não estrita.
+// 10 === '10'; // Três iguais = Falso, comparação estrita.
+// É possível testar o tipo de valor na função in_array. Por padrão, ela não é strict (rígida).
+// Para definir uma busca estrita (combinar os tipos), passe o parâmetro strict = True.
+
+echo PHP_EOL . "Alguém tirou '10'? ";
+var_dump(in_array('10', $notas, true)); // Testa se o valor 10 está presente em qualquer chave de $notas.
+
+echo PHP_EOL . "Quem tirou 5? ";
+echo array_search(5, $notas) . " <= Resultado da função pode estar vazio a depender da versão do PHP."; // Retorna falso.
+
+// O array_search também tem a busca estrita.
+echo PHP_EOL . PHP_EOL . "Alguém tirou '10'? ";
+// strict = true
+echo array_search('10', $notas, true) . " <= Resultado da função pode estar vazio a depender da versão do PHP.";
